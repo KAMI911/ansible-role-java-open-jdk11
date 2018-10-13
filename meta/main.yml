@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  author: Kálmán Szalai - KAMI
+  description: "Ansible role for configuring Open JDK Java 11 or Server JRE with local installation support"
+  license: MIT
+  min_ansible_version: 1.9
+
+  categories:
+    - development
+    - system
+    - java
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - xenial
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+        - stretch
+    - name: EL
+      versions:
+        - 6
+        - 7
+
+dependencies: []

@@ -1,0 +1,8 @@
+---
+# testing Java Orcale JDK 11 Ansible role
+
+- hosts: localhost
+  remote_user: root
+  roles:
+    - ansible-role-java-open-jdk11
+    #- { role: ansible-role-java-open-jdk11, java_type: serverjre, java_usr_folder: '/usr/java/server-jre', java_latest_folder: '/usr/java/latest-server-jre' }
