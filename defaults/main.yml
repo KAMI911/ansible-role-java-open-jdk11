@@ -9,7 +9,7 @@ java_installer_keep: true
 java_installer_local: false
 
 java_bins_jdk: [ 'javap', 'jmap', 'pack200', 'jrunscript', 'jinfo', 'keytool', 'jjs', 'rmid', 'javadoc', 'rmic', 'jstatd', 'java', 'jdb', 'jar', 'rmiregistry', 'jps', 'javac', 'unpack200', 'jdeps', 'jcmd', 'jconsole', 'jarsigner', 'serialver', 'jstack', 'jstat' ]
-java_bins_server_jre: [ 'pack200', 'jrunscript', 'keytool', 'jjs', 'rmid', 'rmic', 'java', 'jar', 'rmiregistry', 'jps', 'javac', 'unpack200', 'jdeps', 'jcmd', 'jarsigner'
+java_bins_server_jre: [ 'pack200', 'jrunscript', 'keytool', 'jjs', 'rmid', 'rmic', 'java', 'jar', 'rmiregistry', 'jps', 'javac', 'unpack200', 'jdeps', 'jcmd', 'jarsigner' ]
 
 java_bins_priority: 9
 java_bins_update: true
