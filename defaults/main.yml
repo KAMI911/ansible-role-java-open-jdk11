@@ -16,14 +16,19 @@ java_bins_update: true
 
 java_type: jdk
 
-# JDK 11.0.28
+# JDK 11.0.1.13
 java_version: 11
-java_update: 0
-java_build: '28'
+java_update: 1
+java_build: '13'
+
+# JDK 11.0.0.28
+# java_version: 11
+# java_update: 0
+# java_build: '28'
 
 java_platform: linux-x64
 
 java_usr_folder: /usr/java
 java_latest_folder: /usr/java/latest
 
-java_download_base_url: https://download.java.net/java/ga/
+java_download_base_url: https://download.java.net/java/GA/

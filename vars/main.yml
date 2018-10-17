@@ -1,10 +1,9 @@
 ---
 # vars file for ansible-role-java-open-jdk11
 
-# java_download_filename: 'open{{ java_type }}-{{ java_version }}.0.{{ java_update }}_{{ java_platform }}_bin.tar.gz'
-java_download_filename: 'open{{ java_type }}-{{ java_version }}_{{ java_platform }}_bin.tar.gz'
+java_download_filename: 'open{{ java_type }}-{{ java_version }}.0.{{ java_update }}_{{ java_platform }}_bin.tar.gz'
 java_download_url: '{{ java_download_base_url }}/{{ java_type }}{{ java_version}}/{{ java_download_filename }}'
-# https://download.java.net/java/ga/jdk11/openjdk-11_linux-x64_bin.tar.gz
+# https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz
 
 # java_folder: '{{ java_usr_folder }}/jdk-{{ java_version }}.0.{{ java_update }}'
 java_folder: '{{ java_usr_folder }}/jdk-{{ java_version }}'
