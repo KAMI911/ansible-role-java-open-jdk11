@@ -31,4 +31,5 @@ java_platform: linux-x64
 java_usr_folder: /usr/java
 java_latest_folder: /usr/java/latest
 
-java_download_base_url: https://download.java.net/java/GA/
+java_download_base_url: https://download.java.net/java/GA
+                        https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz
