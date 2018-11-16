@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: java-open-jdk11
   author: Kálmán Szalai - KAMI
   description: "Ansible role for configuring Open JDK Java 11 or Server JRE with local installation support"
   license: MIT
