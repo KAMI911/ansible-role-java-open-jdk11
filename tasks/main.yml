@@ -1,67 +1,8 @@
 ---
 # tasks file for ansible-role-java-open-jdk11
 
-- name: check if Java is installed.
-  stat: path='{{ java_folder }}/README.html'
-  register: java_installed
-
-- name: creating directory
-  file:
-    path: '{{ java_folder }}'
-    state: directory
-    mode: 0775
-    owner: root
-    group: root
-  when: java_installed.stat.exists == false or force_java_install == true
-
-- name: is already downloaded locally
-  become: false
-  local_action:
-    module: stat
-    path: '{{ java_download_filename }}'
-  register: java_is_local_download_file
-
-- name: is already downloaded
-  stat:
-    path: '{{ java_archive }}'
-  register: java_is_download_file
-
-- block:
-    - name: 'downloading Java 11 JDK file {{ java_download_filename }} to local machine'
-      become: false
-      local_action:
-        module: get_url
-        url: '{{ java_download_url }}'
-        validate_certs: false
-        dest: './{{ java_download_filename }}'
-        mode: 0644
-      run_once: true
-      when: ( java_is_local_download_file.stat.exists == false or java_installer_force_overwrite == true ) and java_installer_force_download == true and java_installer_local == true
-
-    - name: copy java tar file
-      copy:
-        src: '{{ java_download_filename }}'
-        dest: '{{ java_archive }}'
-        mode: 0644
-      when: ( java_is_download_file.stat.exists == false or java_installer_force_overwrite == true ) and java_installer_local == true
-  when: java_installer_local == true
-
-- name: 'downloading Java 11 JDK file {{ java_download_filename }}'
-  get_url:
-    url: '{{ java_download_url }}'
-    validate_certs: false
-    dest: '{{ java_archive }}'
-    mode: 0644
-  when: ( java_is_download_file.stat.exists == false or java_installer_force_overwrite == true ) and java_installer_force_download == true and java_installer_local == false
-
-- name: 'uncompressing {{ java_download_filename }} file'
-  unarchive:
-    src: '{{ java_archive }}'
-    dest: '{{ java_usr_folder }}'
-    owner: root
-    group: root
-    copy: false
-  when: java_installed.stat.exists == false or force_java_install == true
+- name: download Java installer
+  include_tasks: download.yml
 
 - name: 'copy Java cacerts file'
   copy:
@@ -79,12 +20,6 @@
     owner: root
     group: root
     state: link
-
-- name: remove downloaded file
-  file:
-    path: '{{ java_archive }}'
-    state: absent
-  when: java_installer_keep == false
 
 - name: 'install Java environment variables'
   template:
