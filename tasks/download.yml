@@ -2,7 +2,7 @@
 # download and uncompress tasks file for ansible-role-java-open-jdk11
 
 - name: check if Java is installed.
-  stat: path='{{ java_folder }}/README.html'
+  stat: path='{{ java_folder }}/release'
   register: java_installed
 
 - name: creating directory
