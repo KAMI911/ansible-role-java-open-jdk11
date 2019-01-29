@@ -22,9 +22,9 @@ java_update: 2
 java_build: '9'
 
 # JDK 11.0.1.13
-java_version: 11
-java_update: 1
-java_build: '13'
+# java_version: 11
+# java_update: 1
+# java_build: '13'
 
 # JDK 11.0.0.28
 # java_version: 11
