@@ -6,10 +6,12 @@ galaxy_info:
   license: MIT
   min_ansible_version: 1.9
 
-  categories:
+  galaxy_tags:
     - development
     - system
     - java
+    - jdk
+    - openjdk
 
   platforms:
     - name: Ubuntu
