@@ -1,6 +1,6 @@
-# Ansible Role: Installs Java 11 JDK or Server JRE
+# Ansible Role: Installs Java 11 Open JDK
 
-Java 11 JDK installation on Linux.
+Easy way of Java 11 Open JDK installation on Linux. Supports remote download, local download of official package, symlinking to lastest folder, alternatives settings.
 
 Travis status:   [![Build Status](https://travis-ci.org/KAMI911/ansible-role-java-open-jdk11.svg?branch=master)](https://travis-ci.org/KAMI911/ansible-role-java-open-jdk11)
 Code Climate status: [![Code Climate](https://codeclimate.com/github/KAMI911/ansible-role-java-open-jdk11/badges/gpa.svg)](https://codeclimate.com/github/KAMI911/ansible-role-java-open-jdk11)
