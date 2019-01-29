@@ -32,14 +32,14 @@
   become: true
   alternatives: link="/usr/bin/{{ item }}" name="{{ item }}" path="{{ java_folder }}/bin/{{ item }}" priority={{ java_bins_priority }}
   with_items: "{{ java_bins_jdk }}"
-  when: 
-   - java_bins_update
-   - java_type == 'jdk'
+  when:
+    - java_bins_update
+    - java_type == 'jdk'
 
 - name: 'link Java Server RE binaries'
   become: true
   alternatives: link="/usr/bin/{{ item }}" name="{{ item }}" path="{{ java_folder }}/bin/{{ item }}" priority={{ java_bins_priority }}
   with_items: "{{ java_bins_server_jre }}"
-  when: 
-   - java_bins_update
-   - java_type == 'server_jre'
+  when:
+    - java_bins_update
+    - java_type == 'server_jre'
