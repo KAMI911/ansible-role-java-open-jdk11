@@ -12,7 +12,7 @@
     mode: 0775
     owner: root
     group: root
-  when: java_installed.stat.exists == false or force_java_install == true
+  when: not java_installed.stat.exists or force_java_install
 
 - name: is already downloaded locally
   become: false
@@ -36,15 +36,15 @@
         mode: 0644
       delegate_to: localhost
       run_once: true
-      when: ( java_is_local_download_file.stat.exists == false or java_installer_force_overwrite == true ) and java_installer_force_download == true and java_installer_local == true
+      when: ( not java_is_local_download_file.stat.exists or java_installer_force_overwrite ) and java_installer_force_download and java_installer_local
 
     - name: copy java tar file
       copy:
         src: '{{ java_download_filename }}'
         dest: '{{ java_archive }}'
         mode: 0644
-      when: ( java_is_download_file.stat.exists == false or java_installer_force_overwrite == true ) and java_installer_local == true
-  when: java_installer_local == true
+      when: ( not java_is_download_file.stat.exists or java_installer_force_overwrite ) and java_installer_local
+  when: java_installer_local
 
 - name: 'downloading Java 11 JDK file {{ java_download_filename }}'
   get_url:
@@ -52,7 +52,7 @@
     validate_certs: false
     dest: '{{ java_archive }}'
     mode: 0644
-  when: ( java_is_download_file.stat.exists == false or java_installer_force_overwrite == true ) and java_installer_force_download == true and java_installer_local == false
+  when: ( not java_is_download_file.stat.exists or java_installer_force_overwrite ) and java_installer_force_download and not java_installer_local
 
 - name: 'uncompressing {{ java_download_filename }} file'
   unarchive:
@@ -61,10 +61,10 @@
     owner: root
     group: root
     copy: false
-  when: java_installed.stat.exists == false or force_java_install == true
+  when: not java_installed.stat.exists or force_java_install
 
 - name: remove downloaded file
   file:
     path: '{{ java_archive }}'
     state: absent
-  when: java_installer_keep == false
+  when: not java_installer_keep
