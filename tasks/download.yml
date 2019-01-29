@@ -16,9 +16,9 @@
 
 - name: is already downloaded locally
   become: false
-  local_action:
-    module: stat
+  stat:
     path: '{{ java_download_filename }}'
+  delegate_to: localhost
   register: java_is_local_download_file
 
 - name: is already downloaded
@@ -29,12 +29,12 @@
 - block:
     - name: 'downloading Java 11 JDK file {{ java_download_filename }} to local machine'
       become: false
-      local_action:
-        module: get_url
+      get_url:
         url: '{{ java_download_url }}'
         validate_certs: false
         dest: './{{ java_download_filename }}'
         mode: 0644
+      delegate_to: localhost
       run_once: true
       when: ( java_is_local_download_file.stat.exists == false or java_installer_force_overwrite == true ) and java_installer_force_download == true and java_installer_local == true
 
