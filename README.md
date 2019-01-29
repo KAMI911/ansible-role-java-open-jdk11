@@ -95,7 +95,7 @@ None.
 
     - hosts: all
       roles:
-        - java-oracle-jdk11
+        - java-open-jdk11
 
 ## Licensing
 
