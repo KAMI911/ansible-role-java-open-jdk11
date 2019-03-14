@@ -1,0 +1,3 @@
+- hosts: all
+  roles:
+  - java-open-jdk11
