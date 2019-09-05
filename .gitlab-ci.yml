@@ -7,9 +7,9 @@ services:
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://docker:2376
-  DOCKER_TLS_VERIFY: 1
-  DOCKER_TLS_CERTDIR: "/certs"
-  DOCKER_CERT_PATH: "/certs/client"
+  DOCKER_TLS_VERIFY: 0
+  # DOCKER_TLS_CERTDIR: "/certs"
+  # DOCKER_CERT_PATH: "/certs/client"
 
 before_script:
   - apk update && apk add --no-cache openrc docker python3-dev py3-pip gcc git curl build-base autoconf automake py3-cryptography linux-headers musl-dev libffi-dev openssl-dev openssh gzip unzip tar
