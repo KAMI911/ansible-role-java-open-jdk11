@@ -32,6 +32,7 @@
   become: true
   alternatives: link="/usr/bin/{{ item }}" name="{{ item }}" path="{{ java_folder }}/bin/{{ item }}" priority={{ java_bins_priority }}
   with_items: "{{ java_bins_jdk }}"
+  ignore_errors: yes
   when:
     - java_bins_update
     - java_type == 'jdk'
@@ -40,6 +41,7 @@
   become: true
   alternatives: link="/usr/bin/{{ item }}" name="{{ item }}" path="{{ java_folder }}/bin/{{ item }}" priority={{ java_bins_priority }}
   with_items: "{{ java_bins_server_jre }}"
+  ignore_errors: yes
   when:
     - java_bins_update
     - java_type == 'server_jre'
